@@ -64,7 +64,15 @@ function stock (title) {
         addJSON (json_prods)  {
             // ....... add code here
            
-
+            const productos = JSON.parse(json_prods);
+            //let keys = Object.keys(recibido);
+            Object.keys(productos).forEach((i) => {
+                let n = productos[i].n ? productos[i].n : 0;
+                if (! _stock[i]) {
+                    this.new_p(i, productos[i].desc)    
+                } 
+                this.add(i, n);
+            });
             // .......
         },
 
@@ -93,13 +101,16 @@ console.log("-> my_shop.new_p('a4', 'spoon')");
 console.log("-> my_shop.add('a4', 7)");
 
 console.log();
+console.log("There are " + my_shop.number() + " prods");
+
+console.log();
 console.log("_stock= " + my_shop.getJSON());
 
 
-let x = my_shop.get_p('a2');
-console.log("x = " + x);
+//let x = my_shop.get_p('a2');
+//console.log("x = " + x);
 
-/*
+
 console.log();
 console.log();
 
@@ -126,5 +137,6 @@ console.log("-> my_shop.rem('a2', 3)");
 console.log("-> my_shop.del_p('a4')");
 
 console.log();
-console.log("_stock=" + my_shop.getJSON());*/
+console.log("_stock=" + my_shop.getJSON());
+/**/
 module.exports = {stock};
