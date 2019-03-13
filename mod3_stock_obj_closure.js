@@ -42,22 +42,28 @@ function stock (title) {
 
        get_p (code) {       /* return product obj if exists or null if it doesn’t  */
             // ....... add code here
-
+            if(_stock[code]){
+                return _stock[code];
+            }
+            return null;
         },
 
                      /* if code exists eliminate it and return true, else return false  */
         del_p (code) {
             // ....... add code here
-
+            if(_stock[code]){
+                delete _stock[code];
+                //return _stock[code];
+                return true;
+            }
+            return false;
             // .......
         },
 
                 /* Add n to prod if code exists, or create new prod with json params*/
         addJSON (json_prods)  {
             // ....... add code here
-            if(_stock[code]){
-
-            }
+           
 
             // .......
         },
@@ -72,7 +78,7 @@ function stock (title) {
     }
 }
 
-module.exports = {stock};
+
 
 let my_shop = stock("My shop");
 
@@ -89,6 +95,11 @@ console.log("-> my_shop.add('a4', 7)");
 console.log();
 console.log("_stock= " + my_shop.getJSON());
 
+
+let x = my_shop.get_p('a2');
+console.log("x = " + x);
+
+/*
 console.log();
 console.log();
 
@@ -115,4 +126,5 @@ console.log("-> my_shop.rem('a2', 3)");
 console.log("-> my_shop.del_p('a4')");
 
 console.log();
-console.log("_stock=" + my_shop.getJSON());
+console.log("_stock=" + my_shop.getJSON());*/
+module.exports = {stock};
