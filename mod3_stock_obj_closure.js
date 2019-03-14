@@ -65,7 +65,6 @@ function stock (title) {
             // ....... add code here
            
             const productos = JSON.parse(json_prods);
-            //let keys = Object.keys(recibido);
             Object.keys(productos).forEach((i) => {
                 let n = productos[i].n ? productos[i].n : 0;
                 if (! _stock[i]) {
