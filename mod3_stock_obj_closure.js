@@ -53,10 +53,9 @@ function stock (title) {
             // ....... add code here
             if(_stock[code]){
                 delete _stock[code];
-                //return _stock[code];
                 return true;
             }
-            return false;
+            return null;
             // .......
         },
 
@@ -105,11 +104,6 @@ console.log("There are " + my_shop.number() + " prods");
 console.log();
 console.log("_stock= " + my_shop.getJSON());
 
-
-//let x = my_shop.get_p('a2');
-//console.log("x = " + x);
-
-
 console.log();
 console.log();
 
@@ -137,5 +131,5 @@ console.log("-> my_shop.del_p('a4')");
 
 console.log();
 console.log("_stock=" + my_shop.getJSON());
-/**/
+
 module.exports = {stock};
